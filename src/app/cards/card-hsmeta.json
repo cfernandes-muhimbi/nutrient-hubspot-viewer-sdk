@@ -1,0 +1,12 @@
+{
+  "uid": "NutrientdocsV2_card",
+  "type": "card",
+  "config": {
+    "name": "Nutrient Document Editor",
+    "location": "crm.record.tab",
+    "entrypoint": "/app/cards/NutrientCard.tsx",
+    "objectTypes": [
+      "contacts"
+    ]
+  }
+}
