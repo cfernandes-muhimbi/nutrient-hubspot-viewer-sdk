@@ -6,14 +6,14 @@ A comprehensive HubSpot private app that integrates Nutrient Document Viewer for
 
 ## Features
 
-- 📄 View PDF documents attached to contacts
-- 📊 Display Microsoft Office documents (Word, Excel, PowerPoint)
-- 🖼️ View images within HubSpot
-- ✏️ Edit documents using Nutrient Viewer
-- 💾 Save edited documents back to HubSpot
-- 🔒 Secure authentication using HubSpot Private App Token
-- ⚡ Time-limited viewer tokens (15-minute expiry)
-- 🎯 Regex-based CORS validation
+-  View PDF documents attached to contacts
+-  Display Microsoft Office documents (Word, Excel, PowerPoint)
+-  View images within HubSpot
+-  Edit documents using Nutrient Viewer
+-  Save edited documents back to HubSpot
+-  Secure authentication using HubSpot Private App Token
+-  Time-limited viewer tokens (15-minute expiry)
+-  Regex-based CORS validation
 
 ## Architecture
 
@@ -388,178 +388,6 @@ PORT=3000
 # Backend URL (for CRM card links)
 BACKEND_URL=https://your-backend.azurewebsites.net
 ```
-
-## Security Features
-
-### Authentication
-- ✅ HubSpot Private App Token (via `Authorization: Bearer` header)
-- ✅ No API keys exposed in frontend
-- ✅ OAuth support for user-level permissions
-
-### CORS Protection
-- ✅ Regex-based origin validation
-- ✅ Prevents subdomain hijacking attacks
-- ✅ Validates: `hubspot.com`, `hubspotusercontent.com`, `hs-sites.com`
-
-### Viewer Tokens
-- ✅ Time-limited (15 minutes)
-- ✅ File-specific validation
-- ✅ Cryptographically secure (32 bytes)
-
-### Data Security
-- ✅ Files fetched using signed URLs
-- ✅ Private files remain secure
-- ✅ No direct file exposure to client
-
-## API Endpoints
-
-### Backend API
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/health` | GET | Health check |
-| `/api/contact-files/:contactId` | GET | Get files for contact |
-| `/api/file/:fileId?token=...` | GET | Get file content |
-| `/viewer/:fileId?token=...` | GET | Render document viewer |
-| `/api/hubspot/upload?token=...` | POST | Upload edited document |
-| `/api/crm-card` | POST | CRM card data (legacy) |
-
-## Development Workflow
-
-### Local Development with HubSpot Dev Server
-
-HubSpot provides a local development server for real-time UI extension development:
-
-```bash
-hs project dev
-```
-
-Features:
-- Real-time changes without refreshing
-- UI extensions display "Developing locally" tag
-- JSX file changes automatically refresh the page
-
-### Local Backend Proxy
-
-Create `src/app/local.json` to proxy backend requests during local development:
-
-```json
-{
-  "proxy": {
-    "https://your-production-backend.azurewebsites.net": "http://localhost:3000"
-  }
-}
-```
-
-**Important:**
-- Proxy URLs must be valid HTTPS URLs (the key, not the value)
-- Path-based routing is NOT supported
-- To disable proxy, rename to `local.json.bak` and restart dev server
-
-### Request Signing with CLIENT_SECRET
-
-Enable request signing during local development:
-
-```bash
-CLIENT_SECRET="abc123" hs project dev
-```
-
-## Troubleshooting
-
-### Backend Returns 503
-- Check Azure App Service logs
-- Verify `HUBSPOT_PRIVATE_APP_TOKEN` is set in Azure App Settings
-- Ensure startup file is set to `node server.js`
-- Check that all environment variables are configured
-
-### CORS Errors
-- Verify backend URL in `app-hsmeta.json` matches deployed backend
-- Check Azure CORS settings (should not have wildcard `*`)
-- Ensure origin matches regex pattern in backend
-
-### Token Expired
-- Tokens expire after 15 minutes
-- User must click document again to generate new token
-- Check backend logs for token validation errors
-
-### ngrok Issues
-- Ensure ngrok URL is updated in all configuration files
-- Check that ngrok is running and not expired (free tier expires after 2 hours)
-- Verify backend is running on the correct port
-
-### HubSpot Card Not Loading
-- Check browser console for errors
-- Verify `permittedUrls.fetch` includes backend URL
-- Ensure card is properly installed on contact record
-- Check HubSpot CLI logs: `hs project logs`
-
-### File Upload Fails
-- Verify HubSpot Private App Token has `files` scope
-- Check backend logs for upload errors
-- Ensure file size is within limits
-- Verify multipart/form-data is properly configured
-
-## Next Steps
-
-### For Production Deployment
-
-1. **Get Nutrient License Key**
-   - Contact: https://www.nutrient.io/contact-sales/
-   - Choose between:
-     - Azure deployment
-     - Vercel deployment
-     - Other cloud hosting
-
-2. **Implement Production Features**
-   - Add proper logging (Winston, Application Insights)
-   - Implement file storage (Azure Blob Storage, AWS S3)
-   - Add rate limiting and API throttling
-   - Set up monitoring and alerts
-   - Implement error tracking (Sentry, Rollbar)
-
-3. **Security Hardening**
-   - Rotate tokens regularly
-   - Implement IP whitelisting
-   - Add request signing validation
-   - Enable HTTPS-only
-   - Implement CSP headers
-
-4. **Scalability Improvements**
-   - Use connection pooling
-   - Implement caching (Redis)
-   - Add load balancing
-   - Configure auto-scaling
-
-## HubSpot CLI Commands Reference
-
-### Project Commands
-- `hs project create` - Create a new HubSpot project interactively
-- `hs project upload` - Upload the project to HubSpot (build is created automatically)
-- `hs project deploy` - Deploy a specific build of the project to make it live
-- `hs project dev` - Start a local development server for real-time development
-- `hs project watch` - Watch for file changes and automatically upload them
-- `hs project list` - List all projects in the account
-- `hs project logs` - View logs for deployed projects
-- `hs project validate` - Validate project configuration files
-
-### Account Management
-- `hs account auth` - Authenticate a new account
-- `hs account list` - List all configured accounts
-- `hs account use` - Switch the default account
-
-## Important Notes
-
-- This is a **private app** - not for HubSpot Marketplace distribution
-- Frontend uses `@hubspot/ui-extensions` components only
-- `hubspot.fetch` requires fully qualified HTTPS URLs (relative paths NOT supported)
-- Cannot use `window.fetch` in cards - must use `hubspot.fetch`
-- All fetch URLs must be added to `permittedUrls.fetch` in `app-hsmeta.json`
-- Backend uses Express.js with security middleware
-- Documents are served via time-limited tokens, not direct URLs
-
-## License
-
-MIT
 
 ## Support
 
