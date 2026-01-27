@@ -26,10 +26,10 @@
       ]
     },
     "support": {
-      "supportEmail": "support@example.com",
-      "documentationUrl": "https://example.com/docs",
-      "supportUrl": "https://example.com/support",
-      "supportPhone": "+18005555555"
+      "supportEmail": "sales@nutrient.io",
+      "documentationUrl": "https://www.nutrient.io/guides/document-editor/",
+      "supportUrl": "https://www.nutrient.io/contact-sales/?=low-code",
+      "supportPhone": "+1 888 356 4219"
     }
   }
 }
