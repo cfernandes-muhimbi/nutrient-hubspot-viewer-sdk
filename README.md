@@ -34,15 +34,6 @@ This HubSpot private app, integrates Nutrient Document Viewer as a PoC for inter
 - ngrok (for local testing)
 - HubSpot Private App Token
 
-## Prerequisites
-
-- Node.js >= 18.0.0
-- HubSpot Developer Account
-- HubSpot CLI installed (`npm install -g @hubspot/cli`)
-- Azure Web App (or any Node.js hosting) for production
-- ngrok (for local testing)
-- HubSpot Private App Token
-
 ## Features
 
 -  View PDF documents attached to contacts in a standards compliant PDF viewer
