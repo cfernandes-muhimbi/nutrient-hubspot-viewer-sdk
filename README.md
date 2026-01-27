@@ -1,18 +1,49 @@
-# Nutrient HubSpot Integration - Display Microsoft Documents, PDFs & Images
+# Nutrient for HubSpot Integration - Display Microsoft Documents, PDFs & Images
 
-A comprehensive HubSpot private app that integrates Nutrient Document Viewer for viewing, editing, and managing PDF, Microsoft Office documents, and images directly within HubSpot CRM contact records.
+**Nutrient for HubSpot lets you open, edit, and save documents directly inside HubSpot.** 
+Instead of downloading files, opening other apps, and re-uploading them, you can work with PDFs, Microsoft Office Word, Excel, PowerPoint, and images directly on the HubSpot contact CRM record where the work happens.
 
-> **Note:** This guide is ideal for internal tools, demos, and proof-of-concepts. With minor hardening (storage, logging, scaling), it can be production-ready.
+This HubSpot private app, integrates Nutrient Document Viewer as a PoC for internal tools and demos, and can be customised to suit your document processing pipeline. With minor hardening (storage, logging, scaling), it can become production-ready as needed.
+
+## Preview
+
+<img src="./images/HubSpotGIF.gif" alt="Nutrient HubSpot Integration preview" width="800" />
+
+## Overview
+
+```
+┌───────────────────────────┐
+│   Multiple file types     │
+│   PDF/IMAGES/OFFICE DOCS  │
+└───────────────────────────┘ 
+              │
+┌───────────────────────────┐         ┌────────────────────────────┐         ┌───────────────────────┐
+│   HubSpot CRM Record      │ ──────> │  Nutrient Document Viewer  │ ──────> │   Save file changes   │
+│   (Contact/Deal/Ticket)   │ <────── │   (Embedded in HubSpot)    │ <────── │  (inside to HubSpot)  │
+└───────────────────────────┘         └────────────────────────────┘         └───────────────────────┘
+              │                                      │
+              └───> View / Edit files (in place) <───┘
+```
+
+## Prerequisites
+
+- Node.js >= 18.0.0
+- HubSpot Developer Account
+- HubSpot CLI installed (`npm install -g @hubspot/cli`)
+- Azure Web App (or any Node.js hosting) for production
+- ngrok (for local testing)
+- HubSpot Private App Token
 
 ## Features
 
--  View PDF documents attached to contacts
--  Display Microsoft Office documents (Word, Excel, PowerPoint)
--  View images within HubSpot
--  Edit documents using Nutrient Viewer
--  Save edited documents back to HubSpot
+-  View PDF documents attached to contacts in a standards compliant PDF viewer
+-  Automatically convert Microsoft Office documents (Word, Excel, PowerPoint) to PDF to view/edit.
+-  View most image types within HubSpot
+-  Edit and Annotate and comment on viewed documents directly inside the Nutrient PDF Viewer
+-  Save your edited documents back to HubSpot
+-  Viewer, toolbar and document pipeline all customisable by developers
 -  Secure authentication using HubSpot Private App Token
--  Time-limited viewer tokens (15-minute expiry)
+-  Time-limited viewer tokens (15-minute configurable expiry)
 -  Regex-based CORS validation
 
 ## Architecture
@@ -35,15 +66,6 @@ This solution combines a lightweight **Node.js backend**, **HubSpot's file APIs*
 **Backend (server.js):** The backend acts as a secure bridge between HubSpot and the browser. It retrieves files attached to HubSpot contacts, streams them safely to the client, and enables users to view and edit documents directly in the browser using the Nutrient SDK. When a document is opened, the backend fetches the file from HubSpot using signed URLs (ensuring private files remain secure) and sends it to the browser as binary data.
 
 **Save Workflow:** A custom "Save to HubSpot" action is added to the viewer toolbar. With a single click, the edited document is exported from the viewer and uploaded back to HubSpot - either replacing the original file or creating a new one.
-
-## Prerequisites
-
-- Node.js >= 18.0.0
-- HubSpot Developer Account
-- HubSpot CLI installed (`npm install -g @hubspot/cli`)
-- Azure Web App (or any Node.js hosting) for production
-- ngrok (for local testing)
-- HubSpot Private App Token
 
 ## Project Structure
 
