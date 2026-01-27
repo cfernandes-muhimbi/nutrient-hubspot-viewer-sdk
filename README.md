@@ -1,6 +1,7 @@
-# Nutrient HubSpot Integration - Display Microsoft Documents, PDFs & Images
+# Nutrient for HubSpot Integration - Display Microsoft Documents, PDFs & Images
 
-A comprehensive HubSpot private app that integrates Nutrient Document Viewer for viewing, editing, and managing PDF, Microsoft Office documents, and images directly within HubSpot CRM contact records.
+**Nutrient for HubSpot lets you open, edit, and save documents directly inside HubSpot.** 
+Instead of downloading files, opening other apps, and re-uploading them, you can work with PDFs, Microsoft Office Word, Excel, PowerPoint, and images directly on the HubSpot contact CRM record where the work happens.
 
 > **Note:** This guide is ideal for internal tools, demos, and proof-of-concepts. With minor hardening (storage, logging, scaling), it can be production-ready.
 
@@ -14,6 +15,9 @@ A comprehensive HubSpot private app that integrates Nutrient Document Viewer for
 -  Secure authentication using HubSpot Private App Token
 -  Time-limited viewer tokens (15-minute expiry)
 -  Regex-based CORS validation
+
+## Preview
+<img src="./images/HubSpotGIF.gif" alt="Nutrient HubSpot Integration preview" width="800" />
 
 ## Architecture
 
