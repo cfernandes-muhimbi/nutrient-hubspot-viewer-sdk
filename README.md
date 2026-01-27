@@ -15,6 +15,9 @@ A comprehensive HubSpot private app that integrates Nutrient Document Viewer for
 -  Time-limited viewer tokens (15-minute expiry)
 -  Regex-based CORS validation
 
+## Preview
+<img width="1207" height="412" alt="image" src="https://github.com/user-attachments/assets/3705092f-54d2-4258-a3c4-8b9eaaa76d73" />
+
 ## Architecture
 
 This solution combines a lightweight **Node.js backend**, **HubSpot's file APIs**, and the **Nutrient PDF Viewer** to create a seamless in-browser document editing experience.
