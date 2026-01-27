@@ -25,7 +25,14 @@ This HubSpot private app, integrates Nutrient Document Viewer as a PoC for inter
               └───> View / Edit files (in place) <───┘
 ```
 
-> **Note:** This guide is ideal for internal tools, demos, and proof-of-concepts. With minor hardening (storage, logging, scaling), it can be production-ready.
+## Prerequisites
+
+- Node.js >= 18.0.0
+- HubSpot Developer Account
+- HubSpot CLI installed (`npm install -g @hubspot/cli`)
+- Azure Web App (or any Node.js hosting) for production
+- ngrok (for local testing)
+- HubSpot Private App Token
 
 ## Prerequisites
 
