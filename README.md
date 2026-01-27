@@ -16,7 +16,8 @@ A comprehensive HubSpot private app that integrates Nutrient Document Viewer for
 -  Regex-based CORS validation
 
 ## Preview
-<img width="1207" height="412" alt="image" src="https://github.com/user-attachments/assets/3705092f-54d2-4258-a3c4-8b9eaaa76d73" />
+[insert the image here]
+
 
 ## Architecture
 
