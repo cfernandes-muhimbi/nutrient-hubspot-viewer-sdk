@@ -38,11 +38,12 @@ This HubSpot private app, integrates Nutrient Document Viewer as a PoC for inter
 
 ## Features
 
--  View PDF documents attached to contacts
--  Display Microsoft Office documents (Word, Excel, PowerPoint)
--  View images within HubSpot
--  Edit documents using Nutrient Viewer
--  Save edited documents back to HubSpot
+-  View PDF documents attached to contacts in a standards compliant PDF viewer
+-  Automatically convert Microsoft Office documents (Word, Excel, PowerPoint) to PDF to view/edit.
+-  View most image types within HubSpot
+-  Edit and Annotate and comment on viewed documents directly inside the Nutrient PDF Viewer
+-  Save your edited documents back to HubSpot
+-  Viewer, toolbar and document pipeline all customisable by developers
 -  Secure authentication using HubSpot Private App Token
 -  Time-limited viewer tokens (15-minute configurable expiry)
 -  Regex-based CORS validation
