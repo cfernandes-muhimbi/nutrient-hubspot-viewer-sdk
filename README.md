@@ -75,8 +75,6 @@ NutrientdocsV2/
 │   ├── server.js           # Main server file
 │   ├── package.json        # Dependencies
 │   ├── .env.example        # Environment template
-│   ├── ENVIRONMENT_VARIABLES.md
-│   └── AZURE_ENVIRONMENT_SETUP.md
 ├── src/
 │   └── app/
 │       ├── app-hsmeta.json          # App configuration
@@ -85,9 +83,6 @@ NutrientdocsV2/
 │           ├── nutrient-card.tsx    # Document browser card
 │           └── package.json
 ├── hsproject.json          # HubSpot project config
-├── CLAUDE.md              # HubSpot development guidelines
-├── AGENTS.md
-├── HUBSPOT_PROJECTS.md
 └── README.md
 ```
 
