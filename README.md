@@ -432,4 +432,4 @@ For issues or questions:
 
 ---
 
-Built with ❤️ using HubSpot, Nutrient, and Node.js
+Built with ❤️ using HubSpot, Nutrient, Claude(AI assistant) and Node.js
